@@ -31,6 +31,7 @@ Red food is toxic, so the snake dies if the snake eats it.
 ## How to play
 
 * How to control the snake : Use arrow keys.
+* Push "p" key to Pause the game, and push "r" key to Resume(Re-start) the game.
 
 ## CC Attribution-ShareAlike 4.0 International
 

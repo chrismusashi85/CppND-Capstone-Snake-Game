@@ -1,7 +1,6 @@
 #ifndef FOOD_H
 #define FOOD_H
 
-#include <vector>
 #include "SDL.h"
 
 class Food {
