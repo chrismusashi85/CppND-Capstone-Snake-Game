@@ -40,10 +40,6 @@ gamestate.h
 food.h
 /home/workspace/CppND-Capstone-Snake-Game/src/food.h
 
-/home/workspace/CppND-Capstone-Snake-Game/src/gamestate.cpp
-gamestate.h
-/home/workspace/CppND-Capstone-Snake-Game/src/gamestate.h
-
 /home/workspace/CppND-Capstone-Snake-Game/src/gamestate.h
 
 /home/workspace/CppND-Capstone-Snake-Game/src/renderer.h

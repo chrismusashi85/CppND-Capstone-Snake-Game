@@ -7,6 +7,7 @@ Game::Game(std::size_t grid_width, std::size_t grid_height)
       engine(dev()),
       random_w(0, static_cast<int>(grid_width - 1)),
       random_h(0, static_cast<int>(grid_height - 1)) {
+  food.emplace_back(Food());
   PlaceFood();
 }
 
@@ -56,16 +57,19 @@ void Game::Run(Controller const &controller, Renderer &renderer,
 
 void Game::PlaceFood() {
   int x, y;
-  while (true) {
-    x = random_w(engine);
-    y = random_h(engine);
-    // Check that the location is not occupied by a snake item before placing
-    // food.
-    if (!snake.SnakeCell(x, y)) {
-      food.SetPosition(x, y);
-      return;
+  for (auto &f : food) {          // Modified Fus
+    while (true) {
+      x = random_w(engine);
+      y = random_h(engine);
+      // Check that the location is not occupied by a snake item before placing
+      // food.
+      if (!snake.SnakeCell(x, y)) {
+        f.SetPosition(x, y);
+        break;
+      }
     }
   }
+  return;
 }
 
 void Game::Update() {
@@ -77,12 +81,15 @@ void Game::Update() {
   int new_y = static_cast<int>(snake.head_y);
 
   // Check if there's food over here
-  if (food.CheckIfFoodIsThere(new_x, new_y)) {
-    score++;
-    PlaceFood();
-    // Grow snake and increase speed.
-    snake.GrowBody();
-    snake.speed += 0.02;
+  for (auto f : food) {                           // Modified Fus
+    if (f.CheckIfFoodIsThere(new_x, new_y)) {
+      score++;
+      food.emplace_back(Food());
+      PlaceFood();
+      // Grow snake and increase speed.
+      snake.GrowBody();
+      snake.speed += 0.02;
+    }
   }
 }
 

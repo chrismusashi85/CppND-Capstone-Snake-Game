@@ -20,7 +20,7 @@ class Game {
 
  private:
   Snake snake;
-  Food food;
+  std::vector<Food> food;
   GameState current_state;
 
   std::random_device dev;
