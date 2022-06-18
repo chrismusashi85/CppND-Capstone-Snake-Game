@@ -1,7 +1,8 @@
 # CPPND: Capstone Snake Game
+(I chose "CPPND : Capstone Snake Game" as a base project.)
 
 In this game, you control a snake and guide it to a food.
-Yellow food is good for the snake, and the snake gets long if the snake eats it.
+Yellow food is good for the snake, and the snake gets longer if the snake eats it.
 Red food is toxic, so the snake dies if the snake eats it.
 
 <img src="snake_game.png"/>
@@ -37,6 +38,39 @@ Red food is toxic, so the snake dies if the snake eats it.
 * How to control the snake : Use arrow keys.
 
 * Push "p" key to Pause the game, and push "r" key to Resume(Re-start) the game.
+
+## Rubric points addressed
+I added or modified the features described below.
+1. Added Food class
+  Rubric point in this item :
+    1. The project uses Object Oriented Programming techniques. and Classes encapsulate behavior.
+      Defined Food class to have some attributes. (e.g. Food.attr, Food.position)
+    2. Classes use appropriate access specifiers for class members.
+      Added some public functions to access class members in Food.
+        void SetPosition(int x, int y);
+        bool CheckIfFoodIsThere(int x, int y);
+        SDL_Point GetPosition();
+        bool CheckFoodIsToxic();
+    3. Class constructors utilize member initialization lists.
+	    Utilized member initialization lists for the private member "attr".
+    4. The project makes use of references in function declarations.
+      To access "Food vector elements" from "Renderer::Render()" function, passed "&food" as a reference.
+
+2. Added GameState class -> by this, player can pause/resume the game
+  Rubric point in this item : 
+    1. The project accepts user input and processes the input. ("p" for pause, and "r" for resume the game)
+    2. The project makes use of references in function declarations.
+      To access "current_state" in "GameState" class from "Controller::HandleInput()" function, passed "GameState &state" as a reference.
+    3. Class constructors utilize member initialization lists.
+	    Utilized member initialization lists for the private member "current_state" in GameState class.
+
+3. Increased number of food
+  Rubric point in this item :
+    1. The project demonstrates an understanding of C++ functions and control structures.
+     Defined "std::vector<Food> food", and used "for ( auto f : food )" control structure in "Game::PlaceFood()" and "Game::Update()" and "Renderer::Render()".
+
+4. Added different type of food (Toxic food
+
 
 ## CC Attribution-ShareAlike 4.0 International
 
