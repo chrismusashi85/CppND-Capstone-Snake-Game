@@ -49,7 +49,12 @@ void Renderer::Render(Snake const snake, std::vector<Food> const &food) {
 
   // Render food
   for (auto f : food) {       // Modified Fus
-    SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
+    if (f.CheckFoodIsToxic()) {  // Modified Fus
+      SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);     // if food is Toxic then its color is red
+    }
+    else {
+      SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);     // if food is not Toxic then its color is yellow
+    }
     SDL_Point sdlpos = f.GetPosition();
     block.x = sdlpos.x * block.w;
     block.y = sdlpos.y * block.h;
@@ -78,7 +83,10 @@ void Renderer::Render(Snake const snake, std::vector<Food> const &food) {
   SDL_RenderPresent(sdl_renderer);
 }
 
-void Renderer::UpdateWindowTitle(int score, int fps) {
-  std::string title{"Snake Score: " + std::to_string(score) + " FPS: " + std::to_string(fps)};
+void Renderer::UpdateWindowTitle(int score, int fps, Snake &snake) {
+  std::string title{"Snake Score: " + std::to_string(score) + " FPS: " + std::to_string(fps)};   
+  if (!snake.alive) {
+    title += "    GAME OVER !!!!";
+  }
   SDL_SetWindowTitle(sdl_window, title.c_str());
 }

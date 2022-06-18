@@ -1,4 +1,5 @@
 #include "game.h"
+#include "food.h"
 #include <iostream>
 #include "SDL.h"
 
@@ -7,7 +8,7 @@ Game::Game(std::size_t grid_width, std::size_t grid_height)
       engine(dev()),
       random_w(0, static_cast<int>(grid_width - 1)),
       random_h(0, static_cast<int>(grid_height - 1)) {
-  food.emplace_back(Food());
+  food.emplace_back(Food(FoodAttr::Normal));
   PlaceFood();
 }
 
@@ -40,7 +41,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     if (current_state.GetGameState() == gamestate::Run) {
       // After every second, update the window title.
       if (frame_end - title_timestamp >= 1000) {
-        renderer.UpdateWindowTitle(score, frame_count);
+        renderer.UpdateWindowTitle(score, frame_count, snake);
         frame_count = 0;
         title_timestamp = frame_end;
       }
@@ -83,12 +84,17 @@ void Game::Update() {
   // Check if there's food over here
   for (auto f : food) {                           // Modified Fus
     if (f.CheckIfFoodIsThere(new_x, new_y)) {
-      score++;
-      food.emplace_back(Food());
-      PlaceFood();
-      // Grow snake and increase speed.
-      snake.GrowBody();
-      snake.speed += 0.02;
+      if (f.CheckFoodIsToxic()) {
+        snake.alive = false;
+      }
+      else {
+        score++;
+        food.emplace_back(Food(FoodAttr::Toxic));
+        PlaceFood();
+        // Grow snake and increase speed.
+        snake.GrowBody();
+        snake.speed += 0.02;
+      }
     }
   }
 }

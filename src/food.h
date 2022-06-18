@@ -3,25 +3,25 @@
 
 #include "SDL.h"
 
+enum FoodAttr { Normal, Toxic }; // Food Attribute
+
 class Food {
  public:
-/*
-  enum FoodAttr { Normal, Toxic }; // Food Attribute
-  Food(FoodAttr attr, SDL_Point position)
-      : attr(attr), position(position)
+
+  Food(FoodAttr attr)
+      : attr(attr)
     {}
-*/
-  Food()
-    {}
-  
+
   void SetPosition(int x, int y);
 
   bool CheckIfFoodIsThere(int x, int y);
 
   SDL_Point GetPosition() const;
 
+  bool CheckFoodIsToxic();
+
  private:
-  //FoodAttr attr;
+  FoodAttr attr;
   SDL_Point position;
 };
 

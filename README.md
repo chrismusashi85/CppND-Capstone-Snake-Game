@@ -4,7 +4,7 @@ In this game, you control a snake and guide it to a food.
 Yellow food is good for the snake, and the snake gets long if the snake eats it.
 Red food is toxic, so the snake dies if the snake eats it.
 
-<img src="snake_game.gif"/>
+<img src="snake_game.png"/>
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
@@ -30,7 +30,12 @@ Red food is toxic, so the snake dies if the snake eats it.
 
 ## How to play
 
+* Control a snake and get a yellow food.
+* If the snake eats a yellow food, the snake gets longer, score increases, and the number of toxic food increases.
+* If the snake eats a red food, the snake dies and Game is over, because it is a toxic food.
+
 * How to control the snake : Use arrow keys.
+
 * Push "p" key to Pause the game, and push "r" key to Resume(Re-start) the game.
 
 ## CC Attribution-ShareAlike 4.0 International

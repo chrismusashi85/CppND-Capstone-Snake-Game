@@ -13,6 +13,10 @@ bool Food::CheckIfFoodIsThere(int x, int y) {
   return false;
 }
 
+bool Food::CheckFoodIsToxic() {
+  return (attr == FoodAttr::Toxic);
+}
+
 SDL_Point Food::GetPosition() const {
   return position;
 }
