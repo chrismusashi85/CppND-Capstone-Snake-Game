@@ -48,11 +48,11 @@ I added or modified the features described below.
     2. Classes use appropriate access specifiers for class members.
       Added some public functions to access class members in Food.
         void SetPosition(int x, int y);
-        bool CheckIfFoodIsThere(int x, int y);
-        SDL_Point GetPosition();
-        bool CheckFoodIsToxic();
-    3. Class constructors utilize member initialization lists.
-	    Utilized member initialization lists for the private member "attr".
+	bool CheckIfFoodIsThere(int x, int y);
+	SDL_Point GetPosition();
+	bool CheckFoodIsToxic();
+    3. Class constructors utilize member initialization list
+      Utilized member initialization lists for the private member "attr".
     4. The project makes use of references in function declarations.
       To access "Food vector elements" from "Renderer::Render()" function, passed "&food" as a reference.
 
@@ -62,15 +62,14 @@ I added or modified the features described below.
     2. The project makes use of references in function declarations.
       To access "current_state" in "GameState" class from "Controller::HandleInput()" function, passed "GameState &state" as a reference.
     3. Class constructors utilize member initialization lists.
-	    Utilized member initialization lists for the private member "current_state" in GameState class.
+      Utilized member initialization lists for the private member "current_state" in GameState class.
 
 3. Increased number of food
   Rubric point in this item :
     1. The project demonstrates an understanding of C++ functions and control structures.
-     Defined "std::vector<Food> food", and used "for ( auto f : food )" control structure in "Game::PlaceFood()" and "Game::Update()" and "Renderer::Render()".
+      Defined "std::vector<Food> food", and used "for ( auto f : food )" control structure in "Game::PlaceFood()" and "Game::Update()" and "Renderer::Render()".
 
 4. Added different type of food (Toxic food)
-
 
 ## CC Attribution-ShareAlike 4.0 International
 
