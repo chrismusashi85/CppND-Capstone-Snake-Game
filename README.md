@@ -64,7 +64,7 @@ I added or modified the features described below.
     3. Class constructors utilize member initialization lists.
       Utilized member initialization lists for the private member "current_state" in GameState class.
 
-3. Increased number of food
+3. Increased number of food 
   Rubric point in this item :
     1. The project demonstrates an understanding of C++ functions and control structures.
       Defined "std::vector<Food> food", and used "for ( auto f : food )" control structure in "Game::PlaceFood()" and "Game::Update()" and "Renderer::Render()".
