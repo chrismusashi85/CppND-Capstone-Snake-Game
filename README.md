@@ -5,7 +5,7 @@ In this game, you control a snake and guide it to a food.
 Yellow food is good for the snake, and the snake gets longer if the snake eats it.
 Red food is toxic, so the snake dies if the snake eats it.
 
-<img src="snake_game.png"/>
+<img src="snake_game.gif"/>
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
