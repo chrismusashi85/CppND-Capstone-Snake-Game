@@ -69,7 +69,7 @@ I added or modified the features described below.
     1. The project demonstrates an understanding of C++ functions and control structures.
      Defined "std::vector<Food> food", and used "for ( auto f : food )" control structure in "Game::PlaceFood()" and "Game::Update()" and "Renderer::Render()".
 
-4. Added different type of food (Toxic food
+4. Added different type of food (Toxic food)
 
 
 ## CC Attribution-ShareAlike 4.0 International
